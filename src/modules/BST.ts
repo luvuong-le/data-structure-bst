@@ -9,6 +9,22 @@ export default class BST implements IBinarySearchTree {
         this.root = null;
     }
 
+    search(data) {
+        let current: Node = this.root;
+        while (current.data !== data) {
+            if (data > current.data) {
+                current = current.right;
+            } else {
+                current = current.left;
+            }
+
+            if (current === null) {
+                return null;
+            }
+        }
+        return current;
+    }
+
     add(data): void {
         // Set the node to the root
         const node = this.root;
@@ -45,12 +61,27 @@ export default class BST implements IBinarySearchTree {
 
     traverseInOrder(root: Node) {
         if (!root) {
-            console.log("BST is empty");
-            return 'BST is empty'
+            return 'BST is empty';
         } else {
             this.traverseInOrder(root.left);
-            console.log(root.data)
+            console.log(root.data);
             this.traverseInOrder(root.right);
         }
+    }
+
+    traversePreOrder(root: Node) {
+        if (!root) return;
+
+        console.log(root.data);
+        this.traversePostOrder(root.left);
+        this.traversePostOrder(root.right);
+    }
+
+    traversePostOrder(root: Node) {
+        if (!root) return;
+
+        this.traversePostOrder(root.left);
+        this.traversePostOrder(root.right);
+        console.log(root.data);
     }
 }
