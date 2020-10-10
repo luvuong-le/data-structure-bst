@@ -4,12 +4,18 @@ import Node from "@modules/Node";
 
 export default class BST implements IBinarySearchTree {
     root: INode;
+    length: number;
 
     constructor() {
         this.root = null;
+        this.length = 0;
     }
 
-    search(data) {
+    size(): Number {
+        return this.length;
+    }
+
+    search(data): Node {
         let current: Node = this.root;
         while (current.data !== data) {
             if (data > current.data) {
@@ -31,7 +37,8 @@ export default class BST implements IBinarySearchTree {
 
         // If root is null, then add the new node as the root 
         if (!node) {
-            this.root = new Node(data)
+            this.root = new Node(data);
+            this.length++;
             return;
         } else {
             return this.insertNode(this.root, data);
@@ -44,6 +51,7 @@ export default class BST implements IBinarySearchTree {
             // left empty = left is the new node
             if (!node.left) {
                 node.left = new Node(data);
+                this.length++;
                 return;
             } else {
                 return this.insertNode(node.left, data);
@@ -52,6 +60,7 @@ export default class BST implements IBinarySearchTree {
             // right  empty = right is the new node
             if (!node.right) {
                 node.right = new Node(data);
+                this.length++;
                 return;
             } else {
                 return this.insertNode(node.right, data);
