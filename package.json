@@ -9,7 +9,7 @@
     "compile": "tsc",
     "lint": "eslint src/*.{js,ts,tsx} --quiet --fix",
     "test": "jest --silent --coverage",
-    "coverage": "nyc npm run test"
+    "coverage": "codecov"
   },
   "keywords": [],
   "author": "Lu-Vuong <lu-vuongle@hotmail.com>",
