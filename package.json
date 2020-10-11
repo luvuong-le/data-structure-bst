@@ -8,7 +8,8 @@
     "dev": "tsc -w",
     "compile": "tsc",
     "lint": "eslint src/*.{js,ts,tsx} --quiet --fix",
-    "test": "jest --silent"
+    "test": "jest --silent --coverage",
+    "coverage": "nyc npm run test"
   },
   "keywords": [],
   "author": "Lu-Vuong <lu-vuongle@hotmail.com>",
@@ -17,6 +18,7 @@
     "@types/jest": "^26.0.14",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
+    "codecov": "^3.8.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-prettier": "^3.1.4",
